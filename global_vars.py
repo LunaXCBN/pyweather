@@ -5,6 +5,8 @@ geocode = "https://geocode.maps.co/search?q={}+{}"
 # Variable defaults
 lon = 0
 lat = 0
+user_country = ""
+user_city = ""
 
 # Header defaults
 headers = {'content-type': 'application/json'}

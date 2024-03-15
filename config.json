@@ -1,3 +1,7 @@
 {
-    "first_launch": true
+    "first_launch": false,
+    "units": {
+        "temp_unit": "celsius",
+        "speed_unit": "metric"
+    }
 }

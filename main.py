@@ -1,22 +1,46 @@
 import global_vars
 import api_requests
+import json
+import functions
 import interface
 
-# Take users country
-user_country = input("Target country: ")
-print("Selected country: " + user_country + "\n")
+# Open config.json in read-only mode
+with open('config.json', 'r') as f:
+    config = json.load(f)
 
-# Take users city
-user_city = input("Target city: ")
-print("Selected city: " + user_city + "\n")
-
-# Format Geocode API link to include user input
-geocode_link = global_vars.geocode.format(user_city, user_country)
-## Not removed for debugging reason
-#print(geocode_link)
+if config['first_launch'] == True:
+    interface.first_launch_config()
+else:
+    interface.dashboard()
 
 # Call geocode API to translate User Input to Longitude and Latitude
-api_requests.get_lon_lat(geocode_link)
+# This also calls get_user_location() in functions.py
+lonlat = api_requests.get_lon_lat()
 
 # Call openmeteo to get weather data
-api_requests.get_weather(global_vars.lat, global_vars.lon)
+weather = api_requests.get_weather(global_vars.lat, global_vars.lon)
+
+# Clear console
+if weather[0] and lonlat[2] == True:
+    functions.pyweather_banner("Done!")
+
+# Print user location
+print(f"Country: {lonlat[0]}")
+print(f"City: {lonlat[1]}\n")
+
+# Print longitude and latitude
+print(f"Lon: {global_vars.lon}")
+print(f"Lat: {global_vars.lat}")
+
+# Combine data and units
+temp = f"{weather[1]}{weather[2]}"
+humidity = f"{weather[3]}{weather[4]}"
+wind = f"{weather[5]} {weather[6]}"
+
+# Print weather data
+print(f"Temperature: {temp}")
+print(f"Relative humidity: {humidity}")
+print(f"Wind speed: {wind}")
+
+input("\nPress any key to continue...")
+interface.dashboard()
