@@ -5,16 +5,16 @@
         "speed_unit": "metric"
     },
     "variables": {
-        "temperature": true,
-        "relative_humidity": true,
+        "temperature_2m": true,
+        "relative_humidity_2m": true,
         "apparent_temperature": true,
-        "is_day_or_night": true,
-        "rain": false,
-        "showers": false,
-        "snowfall": false,
-        "cloud_cover_total": true,
-        "wind_speed": true,
-        "wind_direction": true,
-        "wind_gusts": false
+        "is_day": true,
+        "rain": true,
+        "showers": true,
+        "snowfall": true,
+        "cloud_cover": true,
+        "wind_speed_10m": true,
+        "wind_direction_10m": true,
+        "wind_gusts_10m": true
     }
 }

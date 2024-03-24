@@ -1,13 +1,13 @@
 weather_vars = {
-        "Temperature": "temperature",
-        "Relative Humidity": "relative_humidity",
+        "Temperature": "temperature_2m",
+        "Relative Humidity": "relative_humidity_2m",
         "Apparent Temperature": "apparent_temperature",
-        "Is Day or Night": "is_day_or_night",
+        "Is Day or Night": "is_day",
         "Rain": "rain",
         "Showers": "showers",
         "Snowfall": "snowfall",
-        "Cloud cover Total": "cloud_cover_total",
-        "Wind Speed": "wind_speed",
-        "Wind Direction": "wind_direction",
-        "Wind Gusts": "wind_gusts"
+        "Cloud cover Total": "cloud_cover",
+        "Wind Speed": "wind_speed_10m",
+        "Wind Direction": "wind_direction_10m",
+        "Wind Gusts": "wind_gusts_10m"
         }
