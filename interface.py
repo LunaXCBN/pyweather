@@ -62,6 +62,7 @@ def configuration():
                                                      "Wind Speed",
                                                      "Wind Direction",
                                                      "Wind Gusts"])
+    
     # Loop through weather_vars map for weather variables
     for i in maps.weather_vars:
         # Check if variables match with selections
@@ -99,7 +100,7 @@ def dashboard():
                               cursor_style="purple")
     
     if dashboard == "Weather":
-        pass
+        functions.get_weather()
     if dashboard == "Config":
         configuration()
     if dashboard == "Quit":
