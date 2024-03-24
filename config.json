@@ -3,5 +3,18 @@
     "units": {
         "temp_unit": "celsius",
         "speed_unit": "metric"
+    },
+    "variables": {
+        "temperature": true,
+        "relative_humidity": true,
+        "apparent_temperature": true,
+        "is_day_or_night": true,
+        "rain": false,
+        "showers": false,
+        "snowfall": false,
+        "cloud_cover_total": true,
+        "wind_speed": true,
+        "wind_direction": true,
+        "wind_gusts": false
     }
 }
