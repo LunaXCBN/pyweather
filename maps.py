@@ -1,3 +1,5 @@
+# these do nothing but add to config atm, need to write formatting to link with this
+
 weather_vars = {
         "Temperature": "temperature_2m",
         "Relative Humidity": "relative_humidity_2m",
