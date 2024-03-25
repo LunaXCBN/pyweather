@@ -1,17 +1,18 @@
 from beaupy.spinners import Spinner
 
-lonlat_spinner = Spinner(['Converting location to lon/lat... ',
-                        'Converting location to lon/lat... █',
-                        'Converting location to lon/lat... ██',
-                        'Converting location to lon/lat... ███',
-                        'Converting location to lon/lat... ████',
-                        'Converting location to lon/lat... █████',
-                        'Converting location to lon/lat... ██████'], text="")
+def wspinner(start: bool, text: str = None):
+    vspinner = Spinner([f"> {text} ",
+                        f"> {text} █",
+                        f"> {text} ██",
+                        f"> {text} ███",
+                        f"> {text} ████",
+                        f"> {text} █████",
+                        f"> {text} ██████"], text = "")
+    
+    if start == False:
+        vspinner.stop()
 
-weather_spinner = Spinner(['Getting weather data... ',
-                        'Getting weather data... █',
-                        'Getting weather data... ██',
-                        'Getting weather data... ███',
-                        'Getting weather data... ████',
-                        'Getting weather data... █████',
-                        'Getting weather data... ██████'], text="")
+    vspinner.start()
+
+def stop_wspinner():
+    vspinner.stop()

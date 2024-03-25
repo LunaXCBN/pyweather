@@ -4,26 +4,29 @@ import global_vars
 import functions
 import spinners
 
+import time
+
 def get_lon_lat():
     user_country, user_city = functions.get_user_location()
     print('\n')
-    spinners.lonlat_spinner.start()
+    spinners.wspinner(True, "Converting to lat/lon...")
     link = global_vars.geocode.format(user_country, user_city)
     response = requests.get(link, headers=global_vars.headers)
 
     # Get longitude and latitude from Geocode API
     lonlat_data = json.loads(response.text)
-    global_vars.lon = lonlat_data[0]['lon']
-    global_vars.lat = lonlat_data[0]['lat']
+    lat = lonlat_data[0]['lat']
+    lon = lonlat_data[0]['lon']
 
     lonlat_ready = True
     if lonlat_ready == True:
-        spinners.lonlat_spinner.stop()
-    return user_country, user_city, lonlat_ready
+        spinners.wspinner(False)
+    return user_country, user_city, lat, lon
 
 def get_weather(lat, lon):
-    spinners.weather_spinner.start()
     openmeteo_link = global_vars.openmeteo.format(lat, lon)
+    print(openmeteo_link)
+    spinners.wspinner(True, "Getting weather data...")
     response = requests.get(openmeteo_link, headers=global_vars.headers)
 
     # Get weather data from Openmeteo API
@@ -41,6 +44,6 @@ def get_weather(lat, lon):
 
     data_ready = True
     if data_ready == True:
-        spinners.weather_spinner.stop()
+        spinners.wspinner(False)
     # Print data in a human readable format
     return data_ready, temp, temp_units, humidity, humidity_units, wind, wind_units

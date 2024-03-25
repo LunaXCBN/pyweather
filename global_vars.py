@@ -3,8 +3,6 @@ openmeteo = "https://api.open-meteo.com/v1/forecast?latitude={}&longitude={}&cur
 geocode = "https://geocode.maps.co/search?q={}+{}"
 
 # Variable defaults
-lon = 0
-lat = 0
 user_country = ""
 user_city = ""
 

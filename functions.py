@@ -48,13 +48,13 @@ def clear_and_quit():
     os.system("cls" if os.name == "nt" else "clear")
     quit()
 
-def get_weather():
+def get_weather_main():
     # Call geocode API to translate User Input to Longitude and Latitude
     # This also calls get_user_location() in functions.py
     lonlat = api_requests.get_lon_lat()
 
     # Call openmeteo to get weather data
-    weather = api_requests.get_weather(global_vars.lat, global_vars.lon)
+    weather = api_requests.get_weather(lonlat[2], lonlat[3])
 
     # Clear console
     if weather[0] and lonlat[2] == True:
@@ -65,8 +65,8 @@ def get_weather():
     print(f"City: {lonlat[1]}\n")
 
     # Print longitude and latitude
-    print(f"Lon: {global_vars.lon}")
-    print(f"Lat: {global_vars.lat}")
+    print(f"Lat: {lonlat[2]}")
+    print(f"Lon: {lonlat[3]}")
 
     # Combine data and units
     temp = f"{weather[1]}{weather[2]}"

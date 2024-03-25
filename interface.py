@@ -100,7 +100,7 @@ def dashboard():
                               cursor_style="purple")
     
     if dashboard == "Weather":
-        functions.get_weather()
+        functions.get_weather_main()
     if dashboard == "Config":
         configuration()
     if dashboard == "Quit":
